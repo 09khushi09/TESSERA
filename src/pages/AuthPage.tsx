@@ -44,7 +44,7 @@ const AuthPage: React.FC = () => {
           name: formData.name,
           email: formData.email,
           password: formData.password,
-          userType,
+          userType: userType,
           ...(userType === 'student' ? {
             institute: formData.institute,
             graduationYear: parseInt(formData.graduationYear) || null

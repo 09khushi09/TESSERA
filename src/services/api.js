@@ -22,7 +22,7 @@ const apiRequest = async (endpoint, options = {}) => {
 
   const headers = {
     ...(token && { Authorization: `Bearer ${token}` }),
-    ...(!isFormData && { 'Content-Type': 'application/json' }),
+    ...(!isFormData ? { 'Content-Type': 'application/json' } : {}),
     ...options.headers,
   };
 

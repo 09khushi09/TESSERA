@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+import os
 import base64
 import json
 import requests
@@ -18,7 +20,13 @@ import re
 import google.generativeai as genai
 from PIL import Image
 
-genai.configure(api_key="API-KEY")
+load_dotenv()
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
+print("GOOGLE_API_KEY loaded:", GOOGLE_API_KEY)
+print("TOGETHER_API_KEY loaded:", TOGETHER_API_KEY)
+
+genai.configure(api_key=GOOGLE_API_KEY)
 
 model = genai.GenerativeModel("gemini-2.5-flash")
 
@@ -29,9 +37,6 @@ CORS(app)
 # Configuration
 # --------------------------
 
-
-
-TOGETHER_API_KEY = "API-KEY"
 
 
 # Initialize Together API client
